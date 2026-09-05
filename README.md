@@ -1,122 +1,47 @@
-# Vexel
+# Vexel 🪐
 
-- 🚀 **[Link](https://next-template-rho-six.vercel.app/en)**
+> **Premium, open-source Quizlet alternative. Rebelling against corporate paywalls.** Built for students, developers, and polyglots.
 
-### 🛠 Tech Stack
-
-- **Framework:** Next.js 16
-- **UI:** React 19
-- **Authentication:** Auth.js / NextAuth.js v5
-- **Database:** PostgreSQL
-- **ORM:** Prisma
-- **State Management:** Zustand
-- **Server State:** TanStack Query
-- **Forms:** React Hook Form + Zod
-- **UI Components:** shadcn/ui + Radix UI
-- **Styling:** Tailwind CSS 4
-- **Image Storage:** Cloudinary
-- **Email:** Resend
-- **2FA:** OTPAuth / TOTP
-- **Testing:** Vitest
-- **Architecture:** Feature-Sliced Design
-- **CI:** GitHub Actions
+🚀 **[Launch Platform](https://vexel-eosin.vercel.app)**
 
 ---
 
-### 🚀 Installation
+## 💡 The Story Behind Vexel
+Vexel was built out of frustration with legacy paywalled apps while gaming and learning phrases. In 2 months, Vexel was created as a lightning-fast, free, open-source alternative featuring advanced memorization algorithms and military-grade security.
 
-#### 1. Clone the repository
+---
 
+## 🛠 Tech Stack & Core Features
+*   **Framework:** Next.js 16 (App Router)
+*   **UI:** React 19 + Tailwind CSS 4 + shadcn/ui
+*   **State:** Zustand + TanStack Query v5
+*   **DB & ORM:** PostgreSQL + Prisma ORM
+*   **Auth & Security:** Auth.js v5 + 2FA (TOTP)
+*   **Services:** Cloudinary & Resend
+*   **Architecture:** Feature-Sliced Design (FSD)
+
+---
+
+## 🧠 Core Engineering Systems
+1. **SM2 Spaced Repetition:** Dynamic interval learning algorithm recalculating Easiness Factors on the backend.
+2. **Multi-tenant Architecture:** Support for isolated Private and shareable Public decks.
+3. **Hardened 2FA Security:** Integrated TOTP generator within the NextAuth v5 flow.
+
+---
+
+## 🚀 Quick Setup
 ```bash
-git clone https://github.com/nfluvv/vexel.git
-cd next-template
-```
-
-#### 2. Install dependencies
-
-```bash
+git clone https://github.com
+cd vexel
 npm install
-```
-
-#### 3. Configure environment variables
-
-Create a `.env` file in the project root:
-
-```bash
 cp .env.example .env
-```
-
-Fill in the required environment variables, including your PostgreSQL connection, Auth.js secret, OAuth credentials, Cloudinary and Resend configuration.
-
-#### 4. Set up the database
-
-Make sure PostgreSQL is running and your `DATABASE_URL` is configured in `.env`.
-
-Generate the Prisma Client:
-
-```bash
 npx prisma generate
-```
-
-Apply the database schema:
-
-```bash
 npx prisma migrate dev
-```
-
-If you need to inspect or manage the database manually, you can open Prisma Studio:
-
-```bash
-npx prisma studio
-```
-
-#### 5. Start the development server
-
-```bash
 npm run dev
 ```
 
-The application will be available at:
-
-```text
-http://localhost:3000
-```
-
-#### Useful Prisma commands
-
-```bash
-# Generate Prisma Client
-npx prisma generate
-
-# Create and apply a new migration
-npx prisma migrate dev
-
-# Apply migrations in production
-npx prisma migrate deploy
-
-# Open Prisma Studio
-npx prisma studio
-
-# Reset the database
-npx prisma migrate reset
-```
-
-> **Note:** `prisma migrate reset` deletes all data from the database. Use it only in development.
-
 ---
 
-### 🏗️ Architecture & Codebase Structure
-
-The project follows the **Feature-Sliced Design** methodology.
-
-```text
-src/
-├── app/          # Application providers and global configuration
-├── views/        # Page-level compositions
-├── widgets/      # Complex reusable UI blocks
-├── features/     # User interactions and business actions
-├── entities/     # Domain models, schemas and queries
-└── shared/       # UI kit, utilities and infrastructure
-
-app/              # Next.js routing layer
-```
+## 💰 Support & License
+*   **TON / USDT:** `UQDS84qVy-oyh6PG5Hss9r20m81Xabg3MrTTdlrXrRsd4wc8`
+*   Licensed under the MIT License by [nfluvv](https://github.com). Full details can be found in the repository.
