@@ -7,6 +7,7 @@ import { siteConfig } from "@/shared/client/config/site"
 import { buttonVariants, Container } from "@/shared/client/ui"
 import { getTranslations } from "next-intl/server"
 import { UserMenu } from "./UserMenu"
+import { SearchDecksInput, MobileSearchTrigger } from "@/features/search-decks"
 
 export async function Header() {
   const user = await getCurrentUser()
@@ -14,15 +15,22 @@ export async function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-sm">
-      <Container className="flex flex-wrap items-center justify-between gap-1.5 gap-x-4 gap-y-2 py-2.5 sm:h-16 sm:py-0">
+      <Container className="relative flex h-14 items-center gap-2 sm:h-16">
         <Link
           href={siteConfig.routes.home}
           className="font-display shrink-0 text-base font-semibold sm:text-lg"
         >
-          {siteConfig.name}
+          🪐 {siteConfig.name}
         </Link>
 
-        <div className="flex flex-wrap items-center gap-1 sm:gap-2">
+        {user && (
+          <div className="hidden flex-1 px-4 md:flex">
+            <SearchDecksInput className="mx-auto max-w-xl" />
+          </div>
+        )}
+
+        <div className="ml-auto flex shrink-0 items-center gap-1 sm:gap-2">
+          <MobileSearchTrigger />
           <ThemeToggle />
           <LanguageSwitcher />
 
@@ -31,13 +39,14 @@ export async function Header() {
           {user ? (
             <UserMenu user={user} />
           ) : (
-            <div className="flex flex-wrap items-center gap-1 sm:gap-2">
+            <div className="flex items-center gap-1 sm:gap-2">
               <Link
                 href={siteConfig.routes.login}
                 className={buttonVariants({ variant: "ghost", size: "sm" })}
               >
                 {t("login")}
               </Link>
+
               <Link
                 href={siteConfig.routes.register}
                 className={buttonVariants({ size: "sm" })}

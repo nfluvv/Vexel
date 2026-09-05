@@ -16,34 +16,36 @@ export async function SettingsPage() {
   const t = await getTranslations("userSettings")
 
   return (
-    <Container className="py-8 sm:py-12">
-      <div className="mx-auto max-w-3xl">
-        <div className="mb-8 sm:mb-10">
-          <div className="mb-3 flex items-center gap-3">
-            <span className="font-mono text-[9px] font-semibold tracking-[0.25em] text-muted-foreground/60 uppercase">
-              01 / ACCOUNT
-            </span>
-            <span className="h-px w-8 bg-border" />
+    <main>
+      <Container className="py-8 sm:py-12">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-8 sm:mb-10">
+            <div className="mb-3 flex items-center gap-3">
+              <span className="font-mono text-[9px] font-semibold tracking-[0.25em] text-muted-foreground/60 uppercase">
+                01 / ACCOUNT
+              </span>
+              <span className="h-px w-8 bg-border" />
+            </div>
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              {t("title")}
+            </h1>
+            <p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">
+              {t("description")}
+            </p>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            {t("title")}
-          </h1>
-          <p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">
-            {t("description")}
-          </p>
-        </div>
 
-        <ProfileSettings user={user} userHasPassword={userHasPassword} />
+          <ProfileSettings user={user} userHasPassword={userHasPassword} />
 
-        <div className="mt-5 flex items-center justify-between px-1">
-          <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/60 uppercase">
-            ACCOUNT SETTINGS
-          </span>
-          <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/60">
-            01
-          </span>
+          <div className="mt-5 flex items-center justify-between px-1">
+            <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/60 uppercase">
+              ACCOUNT SETTINGS
+            </span>
+            <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/60">
+              01
+            </span>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </main>
   )
 }

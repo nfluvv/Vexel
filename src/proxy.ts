@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server"
 import createIntlMiddleware from "next-intl/middleware"
 
 import { auth } from "@/auth"
@@ -7,6 +8,8 @@ import { routing } from "@/shared/i18n/routing"
 const intlMiddleware = createIntlMiddleware(routing)
 
 const LOCALE_PATTERN = new RegExp(`^/(${routing.locales.join("|")})(/.*)?$`)
+
+const GUEST_ONLY_PATHS = ["/", "/login", "/register"]
 
 function getLocale(pathname: string) {
   const match = pathname.match(LOCALE_PATTERN)
@@ -25,18 +28,20 @@ export default auth((req) => {
 
   const intlResponse = intlMiddleware(req)
 
-  // /
-  // ↓
-  // /en
   if (intlResponse.status >= 300 && intlResponse.status < 400) {
     return intlResponse
   }
 
   const locale = getLocale(pathname)
   const normalizedPathname = stripLocale(pathname)
+  const isLoggedIn = !!req.auth?.user
+
+  if (isLoggedIn && GUEST_ONLY_PATHS.includes(normalizedPathname)) {
+    return NextResponse.redirect(new URL(`/${locale}/dashboard`, origin))
+  }
 
   const result = checkAuthorization({
-    isLoggedIn: !!req.auth?.user,
+    isLoggedIn,
     role: req.auth?.user?.role,
     pathname: normalizedPathname,
     baseUrl: `${origin}/${locale}`,

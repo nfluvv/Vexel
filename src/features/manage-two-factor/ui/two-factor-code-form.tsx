@@ -49,14 +49,14 @@ export function TwoFactorCodeForm({ mode, onSubmit }: TwoFactorCodeFormProps) {
           </p>
         )}
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
-          <FormField
-            control={form.control}
-            name="code"
-            render={({ field }) => (
-              <FormItem className="flex-1">
-                <FormLabel>{t("code")}</FormLabel>
-                <FormControl>
+        <FormField
+          control={form.control}
+          name="code"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="sr-only">{t("code")}</FormLabel>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <FormControl className="flex-1">
                   <Input
                     inputMode="numeric"
                     autoComplete="one-time-code"
@@ -65,23 +65,23 @@ export function TwoFactorCodeForm({ mode, onSubmit }: TwoFactorCodeFormProps) {
                     {...field}
                   />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
-          <Button
-            type="submit"
-            variant={isDisable ? "destructive" : "default"}
-            disabled={form.formState.isSubmitting}
-          >
-            {form.formState.isSubmitting
-              ? t("checking")
-              : isDisable
-                ? t("disable")
-                : t("confirm")}
-          </Button>
-        </div>
+                <Button
+                  type="submit"
+                  variant="default"
+                  disabled={form.formState.isSubmitting}
+                >
+                  {form.formState.isSubmitting
+                    ? t("checking")
+                    : isDisable
+                      ? t("disable")
+                      : t("confirm")}
+                </Button>
+              </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
       </form>
     </Form>
   )

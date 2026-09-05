@@ -9,6 +9,7 @@ const PUBLIC_ROUTES = [
   "/users",
   "/reset-password",
   "/confirm-email-change",
+  "/donate",
 ]
 
 type CheckAuthorizationParams = {

@@ -10,3 +10,10 @@ export type User = {
   role: UserRole
   twoFactorEnabled: boolean
 }
+
+export type Profile = {
+  id: string
+  name: string | null
+  image: string | null
+  username: string | null
+}

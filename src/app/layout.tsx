@@ -21,7 +21,6 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `${siteConfig.name} | %s`,
   },
-  description: siteConfig.description,
 }
 
 export default async function RootLayout({

@@ -21,12 +21,18 @@ model User {
   twoFactorBackupCodes String[] @default([])
 
   accounts Account[]
+  studySessions StudySession[]
+
+  timezone      String     @default("UTC")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([name])
   @@map("users")
+  decks Deck[]
+  cardProgresses CardProgress[]
+  savedDecks SavedDeck[]
 }
 
 model Account {
@@ -79,8 +85,97 @@ model RateLimitAttempt {
   @@map("rate_limit_attempts")
 }
 
+model Deck {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  status      DeckStatus @default(DRAFT)
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  cards       Card[]
+  studySessions StudySession[]
+
+  @@index([userId, status])
+  @@map("decks")
+  savedDecks SavedDeck[]
+}
+
+model Card {
+  id         String   @id @default(cuid())
+  term       String
+  definition String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  deckId     String
+  deck       Deck     @relation(fields: [deckId], references: [id], onDelete: Cascade)
+
+  @@map("cards")
+  cardProgresses CardProgress[]
+}
+
+model StudySession {
+  id          String   @id @default(cuid())
+  userId      String
+  deckId      String
+  completedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
+
+  @@index([userId, completedAt])
+  @@index([userId, deckId, completedAt])
+  @@map("study_sessions")
+}
+
+model CardProgress {
+  id            String   @id @default(cuid())
+  userId        String
+  cardId        String
+
+  easeFactor    Float    @default(2.5)
+  interval      Int      @default(0)    // days
+  repetitions   Int      @default(0)
+  dueDate       DateTime @default(now())
+
+  lastReviewedAt DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cardId])
+  @@index([userId, dueDate])
+  @@map("card_progress")
+}
+
+model SavedDeck {
+  id        String   @id @default(cuid())
+  userId    String
+  deckId    String
+  savedAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, deckId])
+  @@index([userId, savedAt])
+  @@map("saved_decks")
+}
 
 enum Role {
   USER
   ADMIN
+}
+
+enum DeckStatus {
+  DRAFT
+  PRIVATE
+  PUBLIC
 }

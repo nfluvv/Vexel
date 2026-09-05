@@ -7,7 +7,7 @@ import { mailer } from "@/shared/server/integrations/mailer"
 export const sendEmailChangeConfirmation = async (
   newEmail: string,
   token: string,
-  locale: string,
+  locale: string
 ) => {
   const confirmUrl = `${process.env.NEXTAUTH_URL ?? "http://localhost:3000"}/confirm-email-change?token=${token}`
   const t = await getTranslations({ locale, namespace: "emails.changeEmail" })

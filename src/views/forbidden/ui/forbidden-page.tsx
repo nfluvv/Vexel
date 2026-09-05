@@ -46,21 +46,23 @@ export async function ForbiddenPage({ searchParams }: ForbiddenPageProps) {
   const { title, description, actions } = MESSAGES[currentReason]
 
   return (
-    <Container className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-4 px-4 text-center">
-      <h1 className="text-3xl font-semibold">{title}</h1>
-      <p className="max-w-sm text-muted-foreground">{description}</p>
+    <main>
+      <Container className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center gap-4 px-4 text-center">
+        <h1 className="text-3xl font-semibold">{title}</h1>
+        <p className="max-w-sm text-muted-foreground">{description}</p>
 
-      <div className="flex gap-2">
-        {actions.map((action) => (
-          <Button
-            key={action.href}
-            variant={action.variant ?? "default"}
-            asChild
-          >
-            <Link href={action.href}>{action.label}</Link>
-          </Button>
-        ))}
-      </div>
-    </Container>
+        <div className="flex gap-2">
+          {actions.map((action) => (
+            <Button
+              key={action.href}
+              variant={action.variant ?? "default"}
+              asChild
+            >
+              <Link href={action.href}>{action.label}</Link>
+            </Button>
+          ))}
+        </div>
+      </Container>
+    </main>
   )
 }

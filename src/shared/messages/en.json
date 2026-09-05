@@ -14,27 +14,27 @@
 
   "emails": {
     "verifyEmail": {
-        "subject": "Confirm your email",
-        "heading": "Confirm your email",
-        "body": "Click the link to confirm your email. The link is valid for 24 hours.",
-        "cta": "Confirm email",
-        "ignoreNote": "If you didn't sign up, just ignore this email."
+      "subject": "Confirm your email",
+      "heading": "Confirm your email",
+      "body": "Click the link to confirm your email. The link is valid for 24 hours.",
+      "cta": "Confirm email",
+      "ignoreNote": "If you didn't sign up, just ignore this email."
     },
     "resetPassword": {
-        "subject": "Reset your password",
-        "heading": "Reset your password",
-        "body": "Click the link to set a new password. The link is valid for 1 hour.",
-        "cta": "Reset password",
-        "ignoreNote": "If you didn't request a password reset, just ignore this email."
+      "subject": "Reset your password",
+      "heading": "Reset your password",
+      "body": "Click the link to set a new password. The link is valid for 1 hour.",
+      "cta": "Reset password",
+      "ignoreNote": "If you didn't request a password reset, just ignore this email."
     },
     "changeEmail": {
-        "subject": "Confirm your new email",
-        "heading": "Confirm your new email",
-        "body": "You requested to change your email to this address. Click the link to confirm. The link is valid for 1 hour.",
-        "cta": "Confirm new email",
-        "ignoreNote": "If you didn't request an email change, just ignore this email."
+      "subject": "Confirm your new email",
+      "heading": "Confirm your new email",
+      "body": "You requested to change your email to this address. Click the link to confirm. The link is valid for 1 hour.",
+      "cta": "Confirm new email",
+      "ignoreNote": "If you didn't request an email change, just ignore this email."
     }
-},
+  },
 
   "loginForm": {
     "successLogin": "Signed in successfully",
@@ -204,11 +204,15 @@
     "confirm": "Verify email"
   },
 
-  "userMenu": {
+  "header": {
     "myProfile": "My profile",
     "settings": "Settings",
     "signOut": "Sign out",
-    "admin": "Admin"
+    "admin": "Admin",
+    "dashboard": "Dashboard",
+    "searchPlaceholder": "Search public decks...",
+    "deckType": "Public Deck",
+    "cards": "cards"
   },
 
   "profile": {
@@ -308,7 +312,7 @@
   },
 
   "SiteConfig": {
-    "description": "A Next.js starter built with FSD architecture"
+    "description": "Premium, completely open-source alternative to Quizlet. Create flashcards, practice with smart spaced repetition, and master your materials 100% free and barrier-free."
   },
 
   "NotFound": {
@@ -318,7 +322,8 @@
   },
 
   "Home": {
-    "description": "Next.js + Feature-Sliced Design + Auth.js + Prisma/Postgres + Zod + React Hook Form - everything's set up, start building features.",
+    "title": "Study freely",
+    "description": "Stop paying for flashcards and basic study tools. Create, practice, and master your materials — 100% free and barrier-free.",
     "register": "Get started",
     "login": "Log in"
   },
@@ -361,19 +366,194 @@
     "description": "We've sent an email to <email></email>. Click the link in the email to complete your registration.",
     "pending": "Verification pending",
     "backToLogin": "Back to login"
-},
+  },
 
   "loginVerification": {
     "notVerified": "Email not verified.",
     "checkInboxOrResend": "Check your inbox or request a new email.",
     "resending": "Sending...",
     "resend": "Resend email"
-},
+  },
 
   "themes": {
     "dark": "Dark",
     "light": "Light",
     "system": "System",
     "toggle": "Change theme"
+  },
+
+  "deckCreation": {
+    "title": "New deck",
+    "subtitle": "Draft",
+
+    "editDeck": "Edit deck",
+
+    "startTitle": "Start a new deck",
+    "startDescription": "Create a draft and start adding cards to it.",
+    "startButton": "Start creating",
+    "starting": "Creating draft...",
+
+    "cardsHeading": "Added cards",
+    "cardsCountLabel": "Cards",
+    "emptyCards": "No cards yet — add your first one below",
+
+    "newCardHeading": "New card",
+    "termLabel": "Term",
+    "termPlaceholder": "Term",
+    "definitionLabel": "Definition",
+    "definitionPlaceholder": "Definition",
+    "addCardButton": "Add card",
+    "adding": "Adding...",
+
+    "deckSettings": "Deck settings",
+    "deckSettingsDescription": "Edit the deck title and description.",
+
+    "titleLabel": "Deck title",
+    "titlePlaceholder": "e.g. Irregular verbs",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Optional description",
+
+    "saveButton": "Save",
+    "saving": "Saving...",
+    "saveSuccess": "Deck saved",
+
+    "publishButton": "Publish deck",
+    "publishing": "Publishing...",
+    "publishSuccess": "Deck published",
+
+    "statusPrivate": "Private",
+    "statusPublic": "Public",
+
+    "cards": "Cards",
+    "cardsDescription": "Add the cards you want to study.",
+
+    "errors": {
+      "unauthorized": "Authorization or server error",
+      "decksLimitReached": "You have reached your deck limit",
+      "addCardFailed": "Failed to add the card",
+      "saveFailed": "Failed to save the deck",
+      "publishFailed": "Failed to publish (the deck may be empty)",
+      "deleteCardFailed": "Failed to delete card",
+      "deleteLastCard": "You cannot remove the last card in the deck"
+    }
+  },
+
+  "deckCard": {
+    "editAria": "Edit deck",
+    "deleteAria": "Delete deck",
+    "deleteTitle": "Delete deck?",
+    "deleteDescription": "This deck and all its cards will be permanently deleted.",
+    "deleteDescriptionWithTitle": "Deck \"{title}\" and all its cards will be permanently deleted.",
+    "delete": "Delete",
+    "deleting": "Deleting...",
+    "deleteSuccess": "Deck deleted",
+    "deleteError": "Failed to delete the deck",
+    "statusDraft": "Draft",
+    "statusPrivate": "Private",
+    "statusPublic": "Public"
+  },
+
+  "profileDecks": {
+    "heading": "Public decks",
+    "count": "{count, plural, one {# deck} other {# decks}}",
+    "emptyTitle": "No public decks yet",
+    "emptyDescription": "Decks this person publishes will show up here.",
+    "viewAll": "View all decks",
+    "decksTitle": "{name}'s decks"
+  },
+
+  "Footer": {
+    "rights": "All rights reserved."
+  },
+
+  "study": {
+    "back": "Back",
+    "next": "Next",
+    "browse": "Browse",
+    "browseDesc": "Swipe and flip the cards",
+    "learn": "Learn",
+    "learnDesc": "Write your answers and test yourself",
+    "cards": "cards",
+    "answerPlaceholder": "Write the definition...",
+    "check": "Check",
+    "correct": "Correct!",
+    "typoCorrect": "Almost! Check the spelling: {answer}",
+    "incorrect": "Incorrect. The correct answer: {answer}",
+    "cardsLeft": "Cards left: {count}",
+    "dueCount": "Cards due: {count}",
+    "showAnswer": "Show answer",
+    "again": "Forgot",
+    "hard": "Hard",
+    "good": "Good",
+    "easy": "Easy",
+    "nothingDueTitle": "All caught up!",
+    "nothingDueDescription": "There are no cards due for review today.",
+    "reviewFinishedTitle": "Review complete!",
+    "reviewFinishedDescription": "You've reviewed all the cards.",
+    "finishedTitle": "Done!",
+    "finishedDescription": "Correct on first try: {correct} out of {total}",
+    "restart": "Try again",
+    "emptyDeck": "This deck has no cards yet.",
+    "browseFinishedTitle": "Done!",
+    "browseFinishedDescription": "You've gone through the whole deck.",
+    "goToLearn": "Go to Learn mode",
+    "reviewAgain": "Review again",
+    "goBack": "Go back",
+    "finish": "Finish",
+    "review": "Review",
+    "due": "due",
+    "reviewDueTitle": "Time to review",
+    "reviewDueDescription": "Reinforce what you've learned while it's still fresh.",
+    "reviewDue": "Review {count} cards",
+    "allReviewed": "All caught up",
+    "allReviewedDescription": "There are no cards waiting for review right now.",
+    "deckDescription": "Keep learning at your own pace.",
+    "deckSize": "Deck size",
+    "cardsInDeck": "cards in this deck",
+    "progress": "Progress",
+    "cardsToReview": "cards waiting for review",
+    "nothingToReview": "nothing to review",
+    "studyModes": "Study mode",
+    "studyModesDescription": "Choose how you want to work with this deck.",
+    "chooseStudyMode": "Choose a mode and start learning",
+    "actionsText": "Space — flip, ← → — navigate, S — speak"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "manageDecks": "Manage your decks and track your progress",
+    "startNewDeck": "Start a new deck",
+    "totalDecks": "Total decks in your profile",
+    "streak": "Streak",
+    "days": "days",
+    "reviewAgain": "Review again",
+    "recentlyStudied": "Decks you recently studied",
+    "studied": "Studied:",
+    "searchPlaceholder": "Search decks...",
+    "decksNotFound": "Decks not found",
+    "filters": {
+      "all": "All decks",
+      "draft": "Draft",
+      "private": "Private",
+      "public": "Public"
+    },
+    "popular": {
+      "title": "Popular decks",
+      "desc": "Most popular decks"
+    },
+    "saved": {
+      "title": "Saved decks",
+      "desc": "Decks you saved from other users.",
+      "placeholder": "Search by saved decks",
+      "notFound": "No matches found for «{savedQuery}»",
+      "doesntExists": "There are no saved decks yet."
+    }
+  },
+  "donate": {
+    "title": "Keep it open.",
+    "subtitle": "Support Vexel",
+    "description": "Education should be completely open. If you like vexel, you can support the project with TON or USDT.",
+    "subdescription": "Your support helps keep vexel free and independent.",
+    "crypto": "Crypto"
   }
 }
+  

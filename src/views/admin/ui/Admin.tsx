@@ -32,7 +32,7 @@ export async function AdminPage({ searchParams }: AdminPageProps) {
   })
 
   return (
-    <div className="mx-auto max-w-4xl space-y-6 py-10">
+    <main className="mx-auto max-w-4xl space-y-6 py-10">
       <h1 className="text-2xl font-semibold">{t("title")}</h1>
 
       <HydrationBoundary state={dehydrate(queryClient)}>
@@ -42,6 +42,6 @@ export async function AdminPage({ searchParams }: AdminPageProps) {
           currentUserId={currentUser?.id}
         />
       </HydrationBoundary>
-    </div>
+    </main>
   )
 }

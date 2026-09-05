@@ -17,4 +17,4 @@ export {
   type Credentials,
 } from "./model/schema"
 
-export { USER_ROLES, type User, type UserRole } from "./model/types"
+export * from "./model/types"

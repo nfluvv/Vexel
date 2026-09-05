@@ -38,6 +38,7 @@ export const getUserByUsername = cache(async (username: string) => {
       username: true,
       image: true,
       createdAt: true,
+      savedDecks: true,
     },
   })
 })

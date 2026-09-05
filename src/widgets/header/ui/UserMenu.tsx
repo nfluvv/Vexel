@@ -30,7 +30,7 @@ type UserMenuProps = {
 
 export function UserMenu({ user }: UserMenuProps) {
   const initial = (user.name ?? user.email)?.charAt(0).toUpperCase()
-  const t = useTranslations("userMenu")
+  const t = useTranslations("header")
 
   return (
     <DropdownMenu>
@@ -112,6 +112,10 @@ export function UserMenu({ user }: UserMenuProps) {
 
         <DropdownMenuItem asChild>
           <Link href={siteConfig.routes.settings}>{t("settings")}</Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem asChild>
+          <Link href={siteConfig.routes.dashboard}>{t("dashboard")}</Link>
         </DropdownMenuItem>
 
         {user.role === "ADMIN" && (

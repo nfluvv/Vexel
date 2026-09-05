@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server"
 import { auth } from "@/auth"
 import { prisma } from "@/shared/server/db/prisma"
 import { createUsernameSchema } from "@/entities/user"
+import { checkRateLimit } from "@/shared/server/security/rate-limit"
 
 type UpdateUsernameResult =
   { success: true } | { success: false; error: string }
@@ -17,6 +18,15 @@ export const updateUsername = async (
 
   if (!session?.user?.id) {
     return { success: false, error: "Unauthorized" }
+  }
+
+  const allowed = await checkRateLimit(`update-username:${session.user.id}`, {
+    limit: 5,
+    windowMs: 60_000,
+  })
+
+  if (!allowed) {
+    return { success: false, error: "Too many attempts, try again later" }
   }
 
   const t = await getTranslations("validation")

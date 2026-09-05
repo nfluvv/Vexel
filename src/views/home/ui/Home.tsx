@@ -1,41 +1,25 @@
-import Link from "next/link"
-import { getTranslations } from "next-intl/server"
-
-import { siteConfig } from "@/shared/client/config/site"
-import { buttonVariants } from "@/shared/client/ui/shadcn/button"
-import { auth } from "@/auth"
 import { Container } from "@/shared/client/ui"
+import { HeroSection } from "@/widgets/hero-section"
+// import { PopularDecksList } from "@/widgets/popular-decks"
+// import { redirect } from "next/navigation";
+// import { auth } from "@/auth";
 
 export async function HomePage() {
-  const session = await auth()
-  const isUserLoggedIn = Boolean(session?.user)
-  const t = await getTranslations("Home")
+  // const session = await auth();
+
+  // if (session?.user) {
+  //   redirect("/dashboard");
+  // }
 
   return (
-    <Container className="container flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center gap-6 text-center">
-      <h1 className="font-display text-4xl font-semibold tracking-tight">
-        {siteConfig.name}
-      </h1>
-      <p className="max-w-md text-muted-foreground">{t("description")}</p>
-      <div className="flex gap-3">
-        {!isUserLoggedIn && (
-          <>
-            <Link
-              href={siteConfig.routes.register}
-              className={buttonVariants({ variant: "default" })}
-            >
-              {t("register")}
-            </Link>
+    <main>
+      <Container className="container flex min-h-[calc(100vh-8.5rem)] flex-col justify-center gap-12 pb-20">
+        <HeroSection />
+        {/*         
+        <div className="w-full border-t border-border/40" />
 
-            <Link
-              href={siteConfig.routes.login}
-              className={buttonVariants({ variant: "outline" })}
-            >
-              {t("login")}
-            </Link>
-          </>
-        )}
-      </div>
-    </Container>
+        <PopularDecksList /> */}
+      </Container>
+    </main>
   )
 }

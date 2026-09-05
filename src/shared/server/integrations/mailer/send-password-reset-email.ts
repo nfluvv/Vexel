@@ -7,7 +7,7 @@ import { mailer } from "@/shared/server/integrations/mailer"
 export const sendPasswordResetEmail = async (
   email: string,
   token: string,
-  locale: string,
+  locale: string
 ) => {
   const resetUrl = `${process.env.NEXTAUTH_URL ?? "http://localhost:3000"}/reset-password?token=${token}`
   const t = await getTranslations({ locale, namespace: "emails.resetPassword" })

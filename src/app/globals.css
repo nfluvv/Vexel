@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
 @custom-variant hover {
   @media (hover: hover) and (pointer: fine) {
     &:hover {
@@ -67,83 +68,110 @@
 }
 
 :root {
-  --background: 0 0% 98%;
+  --background: 220 14% 96%;
   --foreground: 222 20% 12%;
 
-  --card: 0 0% 100%;
+  --card: 220 14% 98%;
   --card-foreground: 222 20% 12%;
 
-  --popover: 0 0% 100%;
+  --popover: 220 14% 98%;
   --popover-foreground: 222 20% 12%;
 
-  --primary: 173 80% 24%;
+  --primary: 262 83% 58%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 210 20% 95%;
+  --secondary: 220 14% 93%;
   --secondary-foreground: 222 20% 12%;
 
-  --muted: 210 20% 95%;
-  --muted-foreground: 215 12% 45%;
+  --muted: 220 14% 91%;
+  --muted-foreground: 215 12% 40%;
 
-  --accent: 210 20% 95%;
+  --accent: 220 14% 90%;
   --accent-foreground: 222 20% 12%;
 
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 214 16% 88%;
-  --input: 214 16% 88%;
-  --ring: 173 80% 24%;
+  --border: 220 14% 70%;
+  --input: 220 14% 60%;
+  --ring: 262 83% 58%;
 
   --radius: 0.625rem;
+
+  --hover-glow-opacity: 0.4;
+  --hover-overlay-from: 0.18;
+  --hover-overlay-via: 0.09;
 }
 
 .dark {
   --background: 240 6% 5%;
+
   --foreground: 0 0% 94%;
 
-  --card: 240 5% 7%;
+  --card: 240 5% 6.5%;
   --card-foreground: 0 0% 94%;
 
-  --popover: 240 5% 8%;
+  --popover: 240 5% 7.5%;
   --popover-foreground: 0 0% 94%;
 
-  --primary: 352 100% 52%;
+  --primary: 262 48% 40%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 240 5% 11%;
-  --secondary-foreground: 0 0% 88%;
+  --secondary: 240 5% 9%;
+  --secondary-foreground: 240 2% 88%;
 
-  --muted: 240 5% 11%;
+  --muted: 240 5% 8%;
   --muted-foreground: 240 4% 56%;
 
-  --accent: 240 5% 12%;
+  --accent: 240 5% 9.5%;
   --accent-foreground: 0 0% 94%;
 
   --destructive: 0 72% 46%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 240 5% 15%;
-  --input: 240 5% 15%;
-  --ring: 352 100% 52%;
+  --border: 240 5% 14%;
+  --input: 240 5% 14%;
+  --ring: 262 48% 40%;
+
+  --radius: 0.625rem;
+
+  --hover-glow-opacity: 0.25;
+  --hover-overlay-from: 0.1;
+  --hover-overlay-via: 0.05;
 }
 
 * {
-  border-color: var(--color-border);
+  border-color: hsl(var(--border));
 }
 
-html,
-body {
-  background: var(--color-background);
+html {
+  background: hsl(var(--background));
+}
+
+main {
+  min-height: calc(100vh - 144px);
 }
 
 body {
-  color: var(--color-foreground);
+  min-height: 100vh;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-feature-settings:
     "rlig" 1,
     "calt" 1;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
 }
 
 .dark input:-webkit-autofill,
@@ -162,14 +190,24 @@ body {
   box-shadow: none !important;
 }
 
+::selection {
+  background: hsl(var(--primary) / 0.18);
+  color: hsl(var(--foreground));
+}
+
 .toast {
-  background: white;
-  color: #18181b;
-  border: 1px solid #e4e4e7;
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
 }
 
 .dark .toast {
-  background: #18181b;
-  color: #fafafa;
-  border-color: #27272a;
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border-color: hsl(var(--border));
+}
+
+button,
+a {
+  cursor: pointer;
 }

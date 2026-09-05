@@ -14,21 +14,25 @@ export async function ResetPasswordView({ token }: ResetPasswordViewProps) {
 
   if (!token) {
     return (
-      <Container className="flex min-h-[calc(100vh-90px)] items-center justify-center">
-        <h1 className="text-2xl font-semibold">{t("invalidTitle")}</h1>
-        <p className="max-w-sm text-muted-foreground">
-          {t("invalidDescription")}
-        </p>
-        <Link href={siteConfig.routes.login}>{t("backToLogin")}</Link>
-      </Container>
+      <main>
+        <Container className="flex min-h-[calc(100vh-90px)] items-center justify-center">
+          <h1 className="text-2xl font-semibold">{t("invalidTitle")}</h1>
+          <p className="max-w-sm text-muted-foreground">
+            {t("invalidDescription")}
+          </p>
+          <Link href={siteConfig.routes.login}>{t("backToLogin")}</Link>
+        </Container>
+      </main>
     )
   }
 
   return (
-    <Container className="flex min-h-screen items-center justify-center">
-      <div className="w-full max-w-sm">
-        <ResetPasswordForm token={token} />
-      </div>
-    </Container>
+    <main>
+      <Container className="flex min-h-screen items-center justify-center">
+        <div className="w-full max-w-sm">
+          <ResetPasswordForm token={token} />
+        </div>
+      </Container>
+    </main>
   )
 }

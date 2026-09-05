@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
 
 import { getCurrentUser, getUserByUsername } from "@/entities/user/api/queries"
-import { UserProfile } from "@/widgets/user-profile-card"
 import { UserNotFoundView } from "@/views/user-profile"
-import { Container } from "@/shared/client/ui"
+import { UserProfileView } from "@/views/user-profile"
 import { getTranslations } from "next-intl/server"
 
 type UserProfilePageProps = {
@@ -41,12 +40,5 @@ export default async function UserProfilePage({
     return <UserNotFoundView />
   }
 
-  return (
-    <Container>
-      <UserProfile
-        profile={profile}
-        isOwnProfile={profile.id === currentUser?.id}
-      />
-    </Container>
-  )
+  return <UserProfileView username={username} currentUser={currentUser} />
 }

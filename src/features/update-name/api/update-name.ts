@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server"
 import { auth } from "@/auth"
 import { prisma } from "@/shared/server/db/prisma"
 import { createNameSchema } from "@/entities/user"
+import { checkRateLimit } from "@/shared/server/security/rate-limit"
 
 type UpdateNameResult = { success: true } | { success: false; error: string }
 
@@ -14,6 +15,15 @@ export const updateName = async (raw: unknown): Promise<UpdateNameResult> => {
 
   if (!session?.user) {
     return { success: false, error: "Unauthorized" }
+  }
+
+  const allowed = await checkRateLimit(`update-name:${session.user.id}`, {
+    limit: 5,
+    windowMs: 60_000,
+  })
+
+  if (!allowed) {
+    return { success: false, error: "Too many attempts, try again later" }
   }
 
   const t = await getTranslations("validation")
@@ -26,18 +36,24 @@ export const updateName = async (raw: unknown): Promise<UpdateNameResult> => {
     }
   }
 
+  const trimmedName = parsed.data.name.trim()
+
+  if (!trimmedName) {
+    return { success: false, error: "Invalid data" }
+  }
+
   const currentUser = await prisma.user.findUnique({
     where: { id: session.user.id },
     select: { name: true },
   })
 
-  if (currentUser?.name === parsed.data.name) {
+  if (currentUser?.name === trimmedName) {
     return { success: true }
   }
 
   await prisma.user.update({
     where: { id: session.user.id },
-    data: { name: parsed.data.name },
+    data: { name: trimmedName },
   })
 
   revalidatePath("/settings")

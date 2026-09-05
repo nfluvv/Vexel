@@ -26,9 +26,7 @@ import { changePassword } from "../api/change-password"
 
 type ChangePasswordFormProps = { hasPassword: boolean }
 
-const isNextRedirectError = (
-  error: unknown
-): error is { digest: string } => {
+const isNextRedirectError = (error: unknown): error is { digest: string } => {
   return (
     typeof error === "object" &&
     error !== null &&

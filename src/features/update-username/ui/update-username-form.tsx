@@ -60,31 +60,30 @@ export const UpdateUsernameForm = ({
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="flex items-end gap-2"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem className="flex-1">
+            <FormItem>
               <FormLabel>{t("label")}</FormLabel>
-              <FormControl>
-                <Input placeholder={t("placeholder")} {...field} />
-              </FormControl>
+              <div className="flex items-start gap-2">
+                <FormControl className="flex-1">
+                  <Input {...field} />
+                </FormControl>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting || isUnchanged}
+                  className="disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:opacity-100"
+                >
+                  {isSubmitting ? t("saving") : tc("save")}
+                </Button>
+              </div>
               <FormMessage />
             </FormItem>
           )}
         />
-
-        <Button
-          type="submit"
-          disabled={isSubmitting || isUnchanged}
-          className="disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground disabled:opacity-100"
-        >
-          {isSubmitting ? t("saving") : tc("save")}
-        </Button>
       </form>
     </Form>
   )

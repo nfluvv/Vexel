@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 
 import { AppProviders } from "@/app/providers"
 import { Header } from "@/widgets/header"
+import { Footer } from "@/widgets/footer"
 import { routing } from "@/shared/i18n/routing"
 
 export function generateStaticParams() {
@@ -36,6 +37,7 @@ export default async function LocaleLayout({
       <AppProviders>
         <Header />
         {children}
+        <Footer />
       </AppProviders>
     </NextIntlClientProvider>
   )

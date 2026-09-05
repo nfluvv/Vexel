@@ -7,7 +7,7 @@ import { Button } from "@/shared/client/ui"
 import { useTranslations } from "next-intl"
 
 export const SignOutButton = () => {
-  const t = useTranslations("userMenu")
+  const t = useTranslations("header")
 
   return (
     <Button

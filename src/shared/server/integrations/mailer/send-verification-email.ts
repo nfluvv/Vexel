@@ -7,7 +7,7 @@ import { mailer } from "@/shared/server/integrations/mailer"
 export const sendVerificationEmail = async (
   email: string,
   token: string,
-  locale: string,
+  locale: string
 ) => {
   const verifyUrl = `${process.env.NEXTAUTH_URL ?? "http://localhost:3000"}/verify-email?token=${token}`
   const t = await getTranslations({ locale, namespace: "emails.verifyEmail" })
