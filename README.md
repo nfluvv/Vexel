@@ -44,4 +44,4 @@ npm run dev
 
 ## 💰 Support & License
 *   **TON / USDT:** `UQDS84qVy-oyh6PG5Hss9r20m81Xabg3MrTTdlrXrRsd4wc8`
-*   Licensed under the MIT License by [nfluvv](https://github.com). Full details can be found in the repository.
+*   Licensed under the MIT License by [nfluvv](https://github.com/nfluvv). Full details can be found in the repository.
