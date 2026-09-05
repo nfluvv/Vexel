@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server"
 import { siteConfig } from "@/shared/client/config/site"
 import { Container } from "@/shared/client/ui"
+import Link from "next/link"
 
 export async function Footer() {
   const t = await getTranslations("Footer")
@@ -11,15 +12,14 @@ export async function Footer() {
         <p className="tracking-tight">
           &copy; {siteConfig.currentYear} {siteConfig.name}. {t("rights")}
         </p>
-
         <div className="flex items-center gap-3 [&_a:not(:last-child)]:border-r [&_a:not(:last-child)]:border-border/40 [&_a:not(:last-child)]:pr-3">
-          <a
-            href="/donate"
-            rel="noreferrer"
+          <Link 
+            href="/donate" 
             className="transition-colors hover:text-foreground"
           >
             Donate
-          </a>
+          </Link>
+
           <a
             href={siteConfig.links.repository}
             target="_blank"
