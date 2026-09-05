@@ -1,52 +1,6 @@
-# 🔐 Next.js Auth Template — FSD
+# Vexel
 
-A production-minded authentication starter built with **Next.js**, **Auth.js**, **Prisma**, **PostgreSQL**, and **Feature-Sliced Design (FSD)**.
-
-A ready-to-use foundation for applications that need more than a simple login form: OAuth, email verification, password recovery, 2FA, profile management, administration, rate limiting, and security hardening are already implemented.
-
-- 🚀 **[Live Demo](https://next-template-rho-six.vercel.app/en)**
-
----
-
-### ✨ Features
-
-- **Language Switching** — eng + ru.
-- **Credentials Authentication** — email + password registration and login.
-- **OAuth Authentication** — Google and GitHub providers.
-- **Email Verification** — secure, single-use verification tokens with automatic login.
-- **Password Recovery** — time-limited password reset flow.
-- **Two-Factor Authentication** — RFC 6238 TOTP with QR setup and backup codes.
-- **Profile Management** — username, display name, avatar, email and password management.
-- **Cloudinary Uploads** — signed client-side avatar uploads.
-- **Admin Panel** — user management, pagination, search, roles and audit logging.
-- **Rate Limiting** — PostgreSQL-backed rate limiting without external infrastructure.
-- **Account Linking** — secure OAuth account linking protected against account-takeover scenarios.
-- **Session Validation** — user status is re-validated against the database.
-- **Dark / Light / System Theme** — persistent theme support.
-- **Responsive UI** — modern responsive interface built with shadcn/ui and Tailwind CSS.
-- **FSD Architecture** — layer boundaries enforced with ESLint.
-
----
-
-### 🖥️ Screenshots
-
-#### Profile
-
-![Profile](https://github.com/nfluvv/next-template/blob/main/public/screenshots/profile.PNG?raw=true)
-
-#### Register
-
-![Register](https://github.com/nfluvv/next-template/blob/main/public/screenshots/register.PNG?raw=true)
-
-#### Settings
-
-![Settings Security](https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings2.PNG?raw=true)
-
-#### Settings — Security
-
-![Settings](https://github.com/nfluvv/next-template/blob/main/public/screenshots/settings.PNG?raw=true)
-
----
+- 🚀 **[Link](https://next-template-rho-six.vercel.app/en)**
 
 ### 🛠 Tech Stack
 
@@ -74,7 +28,7 @@ A ready-to-use foundation for applications that need more than a simple login fo
 #### 1. Clone the repository
 
 ```bash
-git clone https://github.com/nfluvv/next-template.git
+git clone https://github.com/nfluvv/vexel.git
 cd next-template
 ```
 
