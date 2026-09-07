@@ -44,7 +44,6 @@ export function EditDeckView({ initialDeck }: DeckEditDashboardProps) {
         <div className="overflow-hidden rounded-2xl border border-border/60 bg-card">
           <header className="border-b border-border/60 px-4 py-4 sm:px-7 sm:py-5">
             <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
-              {/* Title */}
               <div className="flex min-w-0 flex-1 basis-60 items-center gap-3">
                 <div className="flex size-9 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-muted/40">
                   <Layers className="size-4 text-muted-foreground" />
@@ -61,7 +60,6 @@ export function EditDeckView({ initialDeck }: DeckEditDashboardProps) {
                 </div>
               </div>
 
-              {/* Meta + actions */}
               <div className="flex shrink-0 items-center gap-4">
                 <div className="hidden text-right min-[640px]:block">
                   <p className="font-mono text-[10px] tracking-widest text-muted-foreground/60 uppercase">
@@ -88,7 +86,6 @@ export function EditDeckView({ initialDeck }: DeckEditDashboardProps) {
                 />
               </div>
 
-              {/* Mobile count */}
               <div className="flex basis-full items-center gap-2 text-xs text-muted-foreground min-[640px]:hidden">
                 <span>{t("cardsCountLabel")}</span>
 
@@ -163,26 +160,6 @@ export function EditDeckView({ initialDeck }: DeckEditDashboardProps) {
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
-            </div>
-
-            <div className="mt-6 flex items-center justify-between gap-4 border-t border-border/50 pt-5 sm:hidden">
-              <div>
-                <p className="text-xs font-medium">{t("cardsCountLabel")}</p>
-
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  {cards.length} / {MAX_CARDS_PER_DECK}
-                </p>
-              </div>
-
-              <SaveDeckControl
-                deckId={initialDeck.id}
-                title={trimmedTitle}
-                description={description}
-                cardsCount={cards.length}
-                currentStatus={status}
-                disabled={!trimmedTitle}
-                onSaved={setStatus}
-              />
             </div>
           </section>
         </div>

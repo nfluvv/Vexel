@@ -17,24 +17,24 @@ export async function Footer() {
             href="/donate" 
             className="transition-colors hover:text-foreground"
           >
-            Donate
+            {t("donate")}
           </Link>
 
           <a
             href={siteConfig.links.repository}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="transition-colors hover:text-foreground"
           >
-            Repository
+            {t("repo")}
           </a>
           <a
             href={siteConfig.links.github}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="transition-colors hover:text-foreground"
           >
-            My GitHub
+            {t("github")}
           </a>
         </div>
       </Container>

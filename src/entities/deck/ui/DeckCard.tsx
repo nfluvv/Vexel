@@ -64,7 +64,6 @@ export const DeckCard = ({ deck, variant, actions }: DeckCardProps) => {
         className="pointer-events-none absolute -top-9 -right-9 size-20 rounded-full border border-foreground/4.5 transition-transform duration-700 ease-out group-hover:scale-110"
       />
 
-      {/* Actions */}
       {actions && (
         <div
           className="absolute top-5 right-5 z-20 flex items-center gap-1 opacity-100 md:opacity-0 md:transition-opacity md:duration-200 md:group-hover:opacity-100"
@@ -99,7 +98,7 @@ export const DeckCard = ({ deck, variant, actions }: DeckCardProps) => {
 
       <div className="relative z-10 flex items-center justify-between border-t border-border/40 pt-4">
         <span className="font-mono text-[10px] font-medium tracking-[0.12em] uppercase">
-          {deck._count.cards} cards
+          {t("cards", { count: deck._count.cards })}
         </span>
 
         <div className="flex items-center gap-2">

@@ -8,7 +8,7 @@ import { auth } from "@/auth"
 export async function HeroSection() {
   const session = await auth()
   const isUserLoggedIn = Boolean(session?.user)
-  const t = await getTranslations("Home")
+  const t = await getTranslations("home")
 
   return (
     <div className="flex flex-col items-center justify-center gap-6 pt-44 pb-32 text-center">

@@ -30,7 +30,9 @@ export async function Header() {
         )}
 
         <div className="ml-auto flex shrink-0 items-center gap-1 sm:gap-2">
-          <MobileSearchTrigger />
+          {
+            user && <MobileSearchTrigger />
+          }
           <ThemeToggle />
           <LanguageSwitcher />
 

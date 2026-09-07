@@ -48,7 +48,7 @@ export const DashboardSidebar = async ({
         </div>
 
         <p className="mt-2 text-xs text-muted-foreground">
-          {currentDecksCount} of {DECKS_LIMIT} decks
+          {t("decksCount", { count: currentDecksCount, total: DECKS_LIMIT })}
         </p>
       </div>
     </aside>

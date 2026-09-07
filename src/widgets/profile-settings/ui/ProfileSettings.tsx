@@ -60,7 +60,7 @@ export function ProfileSettings({
         )}
 
         <SettingsRow
-          title={userHasPassword ? t("shangePassword") : t("setPassword")}
+          title={userHasPassword ? t("changePassword") : t("setPassword")}
           description={
             userHasPassword ? t("changePasswordDesc") : t("setPasswordDesc")
           }

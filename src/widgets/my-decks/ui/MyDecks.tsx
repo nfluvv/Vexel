@@ -44,7 +44,7 @@ export const MyDecks = async ({
   return (
     <div className="col-span-12 lg:col-span-9">
       <div className="mb-5 flex items-center justify-between">
-        <div>
+        <div className="flex-1">
           <h2 className="text-lg font-semibold tracking-tight">
             {t("totalDecks")}
           </h2>
@@ -54,7 +54,7 @@ export const MyDecks = async ({
           </p>
         </div>
 
-        <span className="flex-1 text-right text-xs text-muted-foreground tabular-nums sm:text-sm">
+        <span className="text-xs text-muted-foreground tabular-nums sm:text-sm">
           {currentDecksCount} / {DECKS_LIMIT}
         </span>
       </div>

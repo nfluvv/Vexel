@@ -240,7 +240,7 @@
     "2faEnable": "Enable 2FA",
     "2faEnabledHint": "Two-factor authentication is enabled. Confirm with a code from your app to disable it.",
     "2faDisable": "Disable",
-    "shangePassword": "Change password",
+    "changePassword": "Change password",
     "changePasswordDesc": "Update your password to protect your account.",
     "setPassword": "Setting a password",
     "setPasswordDesc": "Add a password to further secure your account.",
@@ -319,13 +319,6 @@
     "title": "Page not found",
     "description": "The page you're looking for doesn't exist.",
     "backHome": "Back home"
-  },
-
-  "Home": {
-    "title": "Study freely",
-    "description": "Stop paying for flashcards and basic study tools. Create, practice, and master your materials — 100% free and barrier-free.",
-    "register": "Get started",
-    "login": "Log in"
   },
 
   "linkProvider": {
@@ -450,7 +443,8 @@
     "deleteError": "Failed to delete the deck",
     "statusDraft": "Draft",
     "statusPrivate": "Private",
-    "statusPublic": "Public"
+    "statusPublic": "Public",
+    "cards": "{count} cards"
   },
 
   "profileDecks": {
@@ -463,7 +457,10 @@
   },
 
   "Footer": {
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "github": "My GitHub",
+    "repo": "Repository",
+    "donate": "Donate"
   },
 
   "study": {
@@ -530,6 +527,7 @@
     "studied": "Studied:",
     "searchPlaceholder": "Search decks...",
     "decksNotFound": "Decks not found",
+    "decksCount": "{count} of {total} decks",
     "filters": {
       "all": "All decks",
       "draft": "Draft",
@@ -548,12 +546,79 @@
       "doesntExists": "There are no saved decks yet."
     }
   },
+
   "donate": {
     "title": "Keep it open.",
     "subtitle": "Support Vexel",
     "description": "Education should be completely open. If you like vexel, you can support the project with TON or USDT.",
     "subdescription": "Your support helps keep vexel free and independent.",
     "crypto": "Crypto"
+  },
+
+  "home": {
+    "title": "Study freely",
+    "description": "Stop paying for flashcards and basic study tools. Create, practice, and master your materials — 100% free and barrier-free.",
+    "register": "Get started",
+    "login": "Log in",
+    "features": {
+      "eyebrow": "Why Vexel",
+      "title": "Everything you need for effective learning",
+      "description": "No unnecessary features or distractions. Just the tools that help you remember.",
+      "items": {
+        "spacedRepetition": {
+          "badge": "SM2",
+          "title": "Spaced Repetition",
+          "description": "Mathematics at the service of memory. The server-side SuperMemo-2 algorithm calculates a difficulty factor for every word and reminds you just before you're about to forget it."
+        },
+        "openSource": {
+          "badge": "Open Source",
+          "title": "Absolute Freedom",
+          "description": "The product belongs to the community, not corporations. No hidden paywalls, deck creation limits, or intrusive advertising. Complete freedom to learn."
+        },
+        "smartImport": {
+          "badge": "In Development",
+          "title": "Smart Import",
+          "description": "One-click parsing. Upload subtitles from games, song lyrics, or book chapters — the system automatically turns the text into ready-to-learn decks."
+        }
+      }
+    },
+
+    "comparison": {
+      "eyebrow": "Vexel vs Quizlet",
+      "title": "The comparison is clear",
+      "description": "Vexel is an open-source Quizlet alternative without limits or intrusive advertising.",
+      "feature": "Feature",
+      "quizlet": "Quizlet",
+      "vexel": "Vexel",
+      "rows": {
+        "spacedRepetition": {
+          "feature": "Spaced repetition",
+          "quizlet": "Paid subscription",
+          "vexel": "Free forever"
+        },
+        "decks": {
+          "feature": "Deck limits",
+          "quizlet": "Limited",
+          "vexel": "50 decks with 200 terms each"
+        },
+        "ads": {
+          "feature": "Ads & banners",
+          "quizlet": "Every 5 seconds",
+          "vexel": "Clean interface"
+        },
+        "sourceCode": {
+          "feature": "Source code",
+          "quizlet": "Closed corporate",
+          "vexel": "Open-source (Apache 2.0)"
+        }
+      }
+    },
+
+    "cta": {
+      "title": "Ready to start learning?",
+      "description": "Create your first deck and experience Vexel for yourself.",
+      "button": "Create your first deck"
+    }
   }
 }
   
